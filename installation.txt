@@ -1,1 +1,414 @@
-
+ 1  sudo apt-get update
+    2  sudo apt-get upgrade
+    3  sudo hostnamectl set-hostname mail.aarouundme.com
+    4  sudo nano /etc/hosts
+    5  hostname -f
+    6  ls
+    7  mkdir iRedMail
+    8  cd iRedMail/
+    9  wget https://github.com/iredmail/iRedMail/archive/1.7.1.tar.gz
+   10  ls
+   11  tar xvf 1.7.1.tar.gz
+   12  cd iRedMail-1.7.1/
+   13  chmod +x iRedMail.sh
+   14  sudo chmod +x iRedMail.sh
+   15  sudo bash iRedMail.sh
+   16  sudo systemctl reboot
+   17  sudo apt install certbot
+   18  sudo certbot certonly --webroot --agree-tos --email admin@aarouundme.com -d mail.aarouundme.com -w /var/www/html/
+   19  sudo nano /etc/nginx/sites-available/00-default-ssl.conf
+   20  sudo nano /etc/nginx/templates/ssl.tmpl
+   21  sudo nginx -t
+   22  sudo systemctl reload nginx
+   23  sudo nano /etc/postfix/main.cf
+   24  sudo systemctl reload postfix
+   25  sudo systemctl status postfix
+   26  sudo nano /etc/dovecot/dovecot.conf
+   27  sudo systemctl reload dovecot
+   28  sudo systemctl status dovecot
+   29  telnet gmail-smtp-in.l.google.com 25
+   30  sudo fallocate -l 1G /swapfile
+   31  sudo chmod 600 /swapfile
+   32  sudo mkswap /swapfile
+   33  sudo swapon /swapfile
+   34  sudo nano /etc/fstab
+   35  sudo systemctl daemon-reload
+   36  sudo systemctl restart clamav-daemon
+   37  sudo systemctl status clamav-daemon
+   38  telnet gmail-smtp-in.l.google.com 25
+   39  udo amavisd-new testkeys
+   40  sudo amavisd-new testkeys
+   41  sudo amavisd-new showkeys
+   42  sudo nano /etc/fail2ban/jail.local
+   43  sudo amavisd-new showkeys
+   44  sudo apt update
+   45  sudo apt install amavisd-new
+   46  amavisd-new --version
+   47  sudo amavisd-new showkeys
+   48  dpkg -l | grep amavisd-new
+   49  sudo apt update
+   50  sudo apt install amavisd-new
+   51  sudo amavisd-new showkeys
+   52  sudo /usr/sbin/amavisd-new showkeys
+   53  amavisd showkeys
+   54  sudo amavisd showkeys
+   55  ip -6 addr show
+   56  sudo nano /etc/postfix/main.cf
+   57  cat /etc/postfix/main.cf
+   58  sudo nano /etc/postfix/main.cf
+   59  sudo nano /etc/postfix/sasl_passwd
+   60  sudo systemctl restart postfix
+   61  sudo systemctl status postfix
+   62  sudo chmod 0600 /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
+   63  sudo nano /etc/postfix/sasl_passwd
+   64  sudo postmap /etc/postfix/sasl_passwd
+   65  ls -l /etc/postfix/sasl_passwd.db
+   66  sudo chmod 0600 /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
+   67  sudo systemctl status postfix
+   68  sudo postqueue -f
+   69  sudo systemctl mysql status
+   70  sudo systemctl status mysql
+   71  mysql -u root -p
+   72  mysql
+   73  sudo mysql
+   74  sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+   75  sudo systemctl restart mariadb
+   76  sudo systemctl status mariadb
+   77  sudo mysql
+   78  sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   79  sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+   80  sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   81  sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+   82  sudo systemctl restart mariadb
+   83  sudo systemctl status mariadb
+   84  sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+   85  sudo systemctl restart mariadb
+   86  sudo systemctl status mariadb
+   87  sudo systemctl status mysql
+   88  cd /etc/mysql/
+   89  ls
+   90  cd conf.d/
+   91  ls
+   92  nano mysql.cnf 
+   93  sudo nano mysql.cnf 
+   94  cd ..
+   95  ls
+   96  sudo nano my.cnf
+   97  sudo systemctl restart mysql
+   98  sudo systemctl status mysql
+   99  sudo systemctl restart mariadb
+  100  sudo systemctl status mariadb
+  101  ls
+  102  nano mariadb.cnf 
+  103  sudo nano mariadb.cnf 
+  104  ls
+  105  cd mariadb.conf.d/
+  106  ls
+  107  sudo nano 50-server.cnf 
+  108  sudo mysql
+  109  mysql -h 43.205.82.12 -P 3306 -u root -p
+  110  sudo netstat -tuln | grep 3306
+  111  nc -zv 43.205.82.12 3306
+  112  telnet 43.205.82.12 3306
+  113  sudo systemctl status mariadb
+  114  sudo iptables -L
+  115  sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+  116  sudo systemctl restart mariadb
+  117  sudo systemctl status mariadb
+  118  sudo netstat -tuln | grep 3307
+  119  mysql -h 43.205.82.12 -P 3306 -u root -p
+  120  cd /home/ubuntu/
+  121  ls
+  122  cd iRedMail/
+  123  ls
+  124  cd iRedMail-1.7.1/
+  125  ls
+  126  mysqldump -h 43.205.82.12 -u dbadmindits -p sogo > mydb_backup_sogo.sql
+  127  sudo netstat -tuln | grep 3306
+  128  telnet 43.205.82.12 3306
+  129  sudo netstat -tuln | grep 3306
+  130  mysql -u root -p
+  131  cat /etc/mysql/mariadb.conf.d/50-server.cnf
+  132  sudo iptables -L
+  133  mysql -u root -p -h 127.0.0.1 -P 3306
+  134  sudo netstat -tuln | grep 3306
+  135  sudo apt update
+  136  sudo apt install net-tools
+  137  sudo netstat -tuln | grep 3306
+  138  sudo iptables -L
+  139  sudo tail -n 50 /var/log/mysql/error.log
+  140  sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+  141  sudo systemctl restart mariadb
+  142  sudo systemctl status mariadb
+  143  sudo tail -n 50 /var/log/mysql/error.log
+  144  tail -n 50 /var/log/mysql/error.log
+  145  sudo systemctl restart mariadb
+  146  sudo systemctl status mariadb
+  147  tail -n 50 /var/log/mysql/error.log
+  148  sudo mysql -u root -p
+  149  mysql -h 127.0.0.1 -P 3306 -u dbadmindits -p
+  150  crontab -e
+  151  sudo cat /etc/mysql/mariadb.conf.d/50-server.cnf | grep bind-address
+  152  sudo nano  /etc/mysql/mariadb.conf.d/50-server.cnf 
+  153  sudo systemctl restart mariadb
+  154  sudo systemctl status mariadb
+  155  sudo cat /etc/mysql/mariadb.conf.d/50-server.cnf | grep bind-address
+  156  sudo netstat -tuln | grep 3306
+  157  cd iRedMail/
+  158  ls
+  159  touch mailserver-database-backup.sh
+  160  nano mailserver-database-backup.sh 
+  161  . mailserver-database-backup.sh 
+  162  ll
+  163  ls
+  164  ll
+  165  sudo rm amavisd_backup_20250124_070029.sql iredadmin_backup_20250124_070029.sql iredapd_backup_20250124_070029.sql 
+  166  ll
+  167  sudo rm roundcubemail_backup_20250124_070029.sql sogo_backup_20250124_070029.sql vmail_backup_20250124_070029.sql 
+  168  ll
+  169  mkdir database
+  170  mv mailserver-database-backup.sh database/
+  171  ll
+  172  cd database/
+  173  ls
+  174  pwd
+  175  . mailserver-database-backup.sh 
+  176  l
+  177  ll
+  178  pwd
+  179  scp -i ~/proddits.pem ubuntu@43.205.82.12:/home/ubuntu/iRedMail/database/sogo_backup_20250124_070659.sql .
+  180  ;s
+  181  ls
+  182  cd iRedMail/
+  183  ls
+  184  cd database/
+  185  ll
+  186  sudo rm vmail_backup_20250124_070659.sql sogo_backup_20250124_070659.sql roundcubemail_backup_20250124_070659.sql iredapd_backup_20250124_070659.sql 
+  187  ll
+  188  sudo rm iredadmin_backup_20250124_070659.sql amavisd_backup_20250124_070659.sql 
+  189  ll
+  190  . mailserver-database-backup.sh 
+  191  ll
+  192  sudo rm vmail_backup_20250128_110403.sql sogo_backup_20250128_110403.sql roundcubemail_backup_20250128_110403.sql iredapd_backup_20250128_110403.sql iredadmin_backup_20250128_110403.sql amavisd_backup_20250128_110403.sql 
+  193  ll
+  194  . mailserver-database-backup.sh 
+  195  ls
+  196  cd iRedMail/
+  197  ls
+  198  cd database/
+  199  ls
+  200  rm amavisd_backup_20250128_111429.sql 
+  201  rm iredapd_backup_20250128_111429.sql 
+  202  rm roundcubemail_backup_20250128_111429.sql 
+  203  rm vmail_backup_20250128_111429.sql 
+  204  rm iredadmin_backup_20250128_111429.sql 
+  205  rm sogo_backup_20250128_111429.sql 
+  206  ls
+  207  clear
+  208  ls
+  209  . mailserver-database-backup.sh 
+  210  ll
+  211  ls
+  212  cd iRedMail/
+  213  ls
+  214  cd database/
+  215  ls
+  216  ll
+  217  sudo rm amavisd_backup_20250217_050138.sql iredadmin_backup_20250217_050138.sql iredapd_backup_20250217_050138.sql roundcubemail_backup_20250217_050138.sql sogo_backup_20250217_050138.sql vmail_backup_20250217_050138.sql 
+  218  ll
+  219  . mailserver-database-backup.sh 
+  220  ll
+  221  pwd
+  222  ls
+  223  cd iRedMail/
+  224  ls
+  225  docker ps
+  226  cd /var/log/nginx/
+  227  ls
+  228  cat /etc/nginx/sites-available
+  229  systemctl status nginx postfix dovecot
+  230  systemctl status dovecot
+  231  sudo systemctl restart nginx postfix dovecot
+  232  systemctl status dovecot
+  233  systemctl status nginx postfix dovecot
+  234  df -h
+  235  sudo certbot renew
+  236  sudo systemctl restart nginx
+  237  sudo systemctl status nginx postfix dovecot
+  238  sudo systemctl status dovecot
+  239  sudo ss -tlnp | grep nginx
+  240  sudo nginx -t
+  241  sudo certbot renew --force-renewal
+  242  sudo systemctl restart nginx
+  243  sudo systemctl status nginx
+  244  sudo reboot
+  245  ping mail.aarouundme.com
+  246  sudo systemctl status nginx postfix dovecot iredadmin
+  247  sudo systemctl status dovecot iredadmin
+  248  sudo systemctl status iredadmin
+  249  sudo tail -n 50 /var/log/nginx/error.log
+  250  sudo tail -n 100 /var/log/nginx/error.log
+  251  sudo tail -n 50 /var/log/mail.log
+  252  sudo tail -n 50 /var/log/syslog
+  253  sudo su postgres
+  254  ls
+  255  cd iRedMail/
+  256  ls
+  257  cd database/
+  258  ls
+  259  cat mailserver-database-backup.sh 
+  260  sudo systemctl mysql status
+  261  sudo systemctl status mysql
+  262  sudo tail -n 50 /var/log/nginx/error.log
+  263  sudo tail -n 50 /var/log/mail.log
+  264  sudo tail -n 50 /var/log/syslog
+  265  sudo systemctl status amavis
+  266  sudo systemctl restart amavis
+  267  sudo systemctl status amavis
+  268  sudo systemctl status php-fpm
+  269  dpkg -l | grep php
+  270  sudo systemctl status php8.3-fpm
+  271  sudo systemctl status apache2
+  272  sudo systemctl status mariadb
+  273  sudo systemctl status mysql
+  274  sudo nano /opt/www/roundcubemail-1.6.8/config/config.inc.php
+  275  sudo nano /opt/www/roundcubemail/config/config.inc.php
+  276  sudo systemctl restart php8.3-fpm
+  277  sudo systemctl status php8.3-fpm
+  278  sudo systemctl restart nginx
+  279  sudo systemctl status nginx
+  280  sudo systemctl restart mariadb
+  281  sudo systemctl restart mysql
+  282  sudo systemctl status 
+  283  sudo systemctl status mariadb
+  284  mysql -u roundcube_user -p -h 127.0.0.1 roundcube_db
+  285  sudo mysql -u root -p
+  286  sudo nano /opt/www/roundcubemail/config/config.inc.php
+  287  sudo systemctl restart php8.3-fpm
+  288  sudo systemctl status php8.3-fpm
+  289  sudo systemctl restart nginx
+  290  sudo systemctl status nginx
+  291  sudo systemctl restart mariadb
+  292  sudo systemctl status mariadb
+  293  mysql -u roundcube_user -p -h 127.0.0.1 roundcube_db
+  294  cd ..
+  295  ls
+  296  cd iRedMail-1.7.1/
+  297  ls
+  298  cd conf/
+  299  ls
+  300  cd ..
+  301  ls
+  302  clear
+  303  sudo systemctl status postfix
+  304  sudo systemctl status dovecot
+  305  sudo systemctl status iredapd
+  306  sudo systemctl status nginx
+  307  sudo netstat -tulnp | grep ':80\|:443'
+  308  sudo nginx -t
+  309  sudo tail -n 50 /var/log/nginx/error.log
+  310  curl http://localhost/iredadmin/
+  311  sudo systemctl status php8.3-fpm
+  312  sudo systemctl status php-fpm
+  313  sudo systemctl status php8.3-fpm
+  314  cd /etc/nginx/
+  315  ls
+  316  cd sites-available
+  317  ls
+  318  nano 00-default
+  319  sudo nano 00-default
+  320  nano 00-default-ssl.conf 
+  321  cd .
+  322  cd ..
+  323  ls
+  324  cd conf-available/
+  325  ls
+  326  sudo systemctl restart nginx
+  327  sudo tail -f /var/log/nginx/error.log
+  328  sudo nano /etc/php/8.3/fpm/pool.d/www.conf
+  329  curl https://localhost/iredadmin/
+  330  curl -k https://mail.aarouundme.com/iredadmin/
+  331  openssl x509 -in /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem -text -noout
+  332  ls -lah /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem
+  333  sudo openssl x509 -in /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem -text -noout
+  334  sudo chmod +r /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem
+  335  sudo certbot renew
+  336  sudo ls /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem
+  337  sudo chmod 755 /etc/letsencrypt/live/
+  338  sudo chmod 755 /etc/letsencrypt/archive/
+  339  sudo chmod 644 /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem
+  340  sudo chmod 644 /etc/letsencrypt/live/mail.aarouundme.com/privkey.pem
+  341  sudo systemctl restart nginx
+  342  curl -v https://mail.aarouundme.com
+  343  sudo chmod 644 /etc/letsencrypt/live/mail.aarouundme.com/privkey.pem
+  344  sudo chmod 644 /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem
+  345  history
+  346  sudo systemctl status postfix
+  347  sudo systemctl status dovecot
+  348  sudo systemctl status iredapd
+  349  sudo systemctl status nginx
+  350  sudo systemctl status mariadb
+  351  sudo systemctl status php8.3-fpm
+  352  sudo nginx -t
+  353  sudo tail -n 50 /var/log/nginx/error.log
+  354  sudo tail -n 50 /var/log/mail.log
+  355  sudo systemctl restart postfix
+  356  sudo systemctl status postfix
+  357  clear
+  358  sudo systemctl status amavis
+  359  sudo systemctl restart amavis
+  360  sudo systemctl status amavis
+  361  sudo systemctl restart nginx
+  362  sudo systemctl status nginx
+  363  sudo systemctl restart php8.3-fpm
+  364  sudo systemctl status php8.3-fpm
+  365  sudo systemctl status postfix
+  366  sudo systemctl status iredapd
+  367  openssl x509 -in /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem -text -noout
+  368  sudo chmod +r /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem
+  369  sudo certbot renew
+  370  sudo chmod 755 /etc/letsencrypt/archive/
+  371  sudo chmod 644 /etc/letsencrypt/live/mail.aarouundme.com/fullchain.pem
+  372  sudo chmod 644 /etc/letsencrypt/live/mail.aarouundme.com/privkey.pem
+  373  sudo systemctl restart nginx
+  374  sudo systemctl status nginx
+  375  tail -n 50 /var/log/mail.log
+  376  tail -n 50 /var/log/dovecot.log
+  377  clear
+  378  clear
+  379  tail -n 50 /var/log/maillog
+  380  tail -n 50 /var/log/dovecot.log
+  381  tail -n 50 /var/log/mail.log
+  382  tail -n 50 /var/log/nginx/error.log
+  383  df -h
+  384  systemctl status nginx
+  385  systemctl status postfix
+  386  systemctl status dovecot
+  387  systemctl status mariadb
+  388  ping mail.aarouundme.com
+  389  tail -n 50 /var/log/nginx/error.log
+  390  tail -n 50 /var/log/mail.log
+  391  cat /etc/hosts
+  392  sudo nano /etc/hosts
+  393  cat /etc/hosts
+  394  sudo systemctl restart networking
+  395  sudo systemctl restart nginx postfix dovecot
+  396  dig mail.aarouundme.com +short
+  397  sudo systemctl restart systemd-resolved
+  398  dig MX aarouundme.com
+  399  sudo nginx -t
+  400  hostname
+  401  sudo reboot
+  402  ls
+  403  cd iRedMail/
+  404  ls
+  405  cd database/
+  406  ls
+  407  ll
+  408  sudo rm amavisd_backup_20250220_101809.sql iredadmin_backup_20250220_101809.sql iredapd_backup_20250220_101809.sql roundcubemail_backup_20250220_101809.sql sogo_backup_20250220_101809.sql vmail_backup_20250220_101809.sql 
+  409  ll
+  410  . mailserver-database-backup.sh 
+  411  ll
+  412  ls
+  413  clear
+  414  history
